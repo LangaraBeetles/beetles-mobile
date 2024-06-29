@@ -1,5 +1,8 @@
 import api from "@src/services/api";
-import { ChallengeInputType } from "@src/interfaces/challenge.types";
+import {
+  ChallengeInputType,
+  ChallengeStatusEnum,
+} from "@src/interfaces/challenge.types";
 
 const route = "challenges";
 
@@ -13,7 +16,12 @@ export const createChallenge = async (challenge: ChallengeInputType) => {
   return response.data;
 };
 
-export const getChallenges = async () => {
-  const response = await api.get(`${route}`);
+export const getChallenges = async (filterUser: boolean) => {
+  const response = await api.get(`${route}/?filterUser=${filterUser}`);
+  return response.data;
+};
+
+export const getPastChallenges = async (status: ChallengeStatusEnum) => {
+  const response = await api.get(`${route}/?filterStatus=${status}`);
   return response.data;
 };

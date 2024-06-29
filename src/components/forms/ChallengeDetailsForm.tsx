@@ -15,6 +15,7 @@ import Button from "@src/components/ui/Button";
 import DatePickerModal from "@src/components/ui/DatePickerModal";
 import { Controller, useFormContext } from "react-hook-form";
 import { ChallengeInputType } from "@src/interfaces/challenge.types";
+import { globalStyles } from "@src/styles/globalStyles";
 
 const ChallengeDetailsForm = (props: any) => {
   const [openDatePicker, setOpenDatePicker] = useState(false);
@@ -41,6 +42,14 @@ const ChallengeDetailsForm = (props: any) => {
       setValue("end_at", tempDate.toDateString());
     }
   }, [watchDuration, watchStart]);
+
+  const setColor = (color: string) => {
+    setValue("color", color);
+  };
+
+  const setIcon = (icon: string) => {
+    setValue("icon", icon);
+  };
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -84,11 +93,43 @@ const ChallengeDetailsForm = (props: any) => {
 
             {errors.name && <Text>This is required.</Text>}
 
+            {/* TODO: change to carousel */}
             <Stack flexDirection="row" gap={18} pt={22} justifyContent="center">
-              <TouchableOpacity style={styles.colorSelection1} />
-              <TouchableOpacity style={styles.colorSelection2} />
-              <TouchableOpacity style={styles.colorSelection3} />
-              <TouchableOpacity style={styles.colorSelection4} />
+              <TouchableOpacity onPress={() => setIcon("icon1")}>
+                <Image
+                  source={require("../../../assets/img/mascotCreateChallenge1.png")}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setIcon("icon2")}>
+                <Image
+                  source={require("../../../assets/img/mascotCreateChallenge2.png")}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setIcon("icon3")}>
+                <Image
+                  source={require("../../../assets/img/mascotCreateChallenge3.png")}
+                />
+              </TouchableOpacity>
+            </Stack>
+
+            <Stack flexDirection="row" gap={18} pt={22} justifyContent="center">
+              {/* TODO: update colors according to style palette OR create a new component  */}
+              <TouchableOpacity
+                style={styles.colorSelection1}
+                onPress={() => setColor(globalStyles.colors.primary)}
+              />
+              <TouchableOpacity
+                style={styles.colorSelection2}
+                onPress={() => setColor(globalStyles.colors.secondary)}
+              />
+              <TouchableOpacity
+                style={styles.colorSelection3}
+                onPress={() => setColor(globalStyles.colors.tertiary)}
+              />
+              <TouchableOpacity
+                style={styles.colorSelection4}
+                onPress={() => setColor(globalStyles.colors.anotations)}
+              />
             </Stack>
           </Stack>
 
@@ -205,25 +246,25 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 100,
-    backgroundColor: "#b7b7b7",
+    backgroundColor: globalStyles.colors.primary,
   },
   colorSelection2: {
     width: 32,
     height: 32,
     borderRadius: 100,
-    backgroundColor: "#d4d4d4",
+    backgroundColor: globalStyles.colors.secondary,
   },
   colorSelection3: {
     width: 32,
     height: 32,
     borderRadius: 100,
-    backgroundColor: "#e1e1e1",
+    backgroundColor: globalStyles.colors.tertiary,
   },
   colorSelection4: {
     width: 32,
     height: 32,
     borderRadius: 100,
-    backgroundColor: "#aaa",
+    backgroundColor: globalStyles.colors.anotations,
   },
 });
 

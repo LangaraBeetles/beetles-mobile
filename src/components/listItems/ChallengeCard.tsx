@@ -10,7 +10,7 @@ const ChallengeCard = (props: any) => {
   const showDetails = () => {
     router.navigate({
       pathname: "challengeDetailsScreen",
-      //TODO: get the challengeId only, then make a GET request from the challenge API
+      //TODO: get the challengeId only, then make a GET request from the challenge API. Will be done on ChallengeDetail ticket# 86b11cydp
       params: {
         name: challenge.name,
         startDate: challenge.start_at,
@@ -24,19 +24,26 @@ const ChallengeCard = (props: any) => {
   const end = new Date(challenge.end_at);
   const endMonth = end.toLocaleDateString("default", { month: "long" });
   const endDay = end.getDate();
-  const progressBarLabel = (
-    <Text>
-      {challenge.progress}/{challenge.goal}
-    </Text>
+
+  const goalPoints =
+    challenge.goal * challenge.duration * challenge.members.length ?? 1;
+  const total = challenge.members.reduce(
+    (accu: any, curr: any) => accu + curr.points,
+    0,
   );
 
+  const progressBarLabel = (
+    <Text>
+      {total}/{goalPoints}
+    </Text>
+  );
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={showDetails}>
         <Text>{challenge.name}</Text>
         <Text>
           {isOngoing
-            ? `${endDay - new Date().getDate()} days left`
+            ? `${challenge.duration} days left`
             : `Ended on ${endMonth} ${endDay} `}
         </Text>
         <ProgressBar

@@ -6,6 +6,8 @@ export type ChallengeInputType = {
   end_at: string;
   goal: string;
   duration: string;
+  color: string;
+  icon: string;
   status: ChallengeStatusType;
 };
 
@@ -18,6 +20,8 @@ export type ChallengeType = {
   end_at: Date;
   goal: number;
   duration: number;
+  color: string;
+  icon: string;
   status: ChallengeStatusType;
   members: MemberType[];
 };
