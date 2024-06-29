@@ -18,6 +18,8 @@ const Stack = styled(View, {
     py: "paddingVertical",
     borderRadius: "borderRadius",
     border: "borderWidth",
+    borderRight: "borderRightWidth",
+    borderLeft: "borderLeftWidth",
     borderColor: "borderColor",
     w: "width",
     h: "height",

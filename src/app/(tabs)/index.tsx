@@ -1,13 +1,6 @@
 import React, { useEffect } from "react";
 
-import {
-  Image,
-  Platform,
-  Pressable,
-  ScrollView,
-  Text,
-  View,
-} from "react-native";
+import { Image, Platform, Pressable, ScrollView, View } from "react-native";
 import { Link, Redirect } from "expo-router";
 import DeviceMotionViewiOS, {
   DeviceMotionViewAndroid,
@@ -19,11 +12,12 @@ import SessionControl from "@src/components/sessions/SessionControl";
 import Stack from "@src/components/ui/Stack";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Center from "@src/components/ui/Center";
+import Icon from "@src/components/ui/Icon";
 import TrackingModeIcon from "@src/components/homepage/TrackingModeIcon";
+import { Text } from "@src/components/ui/typography";
 
 import LottieView from "lottie-react-native";
 import { useRef } from "react";
-import Icon from "@src/components/ui/Icon";
 
 const background = {
   not_reading: "white",
@@ -97,22 +91,35 @@ const HomePage = () => {
             flexDirection="row"
             border={1}
             borderRadius={20}
-            justifyContent="space-evenly"
+            gap={10}
             w={"100%"}
-            p={18}
+            px={20}
+            py={25}
+            justifyContent="space-between"
           >
-            <Stack flexDirection="row" border={0} justifyContent="space-evenly">
-              <Center p={5}>
-                <Icon name={"colorLabelIcon-star"} />
+            <Stack
+              flexDirection="row"
+              gap={2}
+              borderRight={1}
+              borderColor={"#E7E5E4"}
+              pr={20}
+            >
+              <Center pr={10}>
+                <Icon name="star" />
               </Center>
 
               <Stack
                 flexDirection="column"
-                border={0}
                 justifyContent="space-evenly"
+                gap={7}
               >
-                <Text>Posture Score</Text>
-                <Text>{userHP} / 100</Text>
+                <Text level="caption_1">Posture Score</Text>
+                <Stack flexDirection="row">
+                  <Text level="title_2">{userHP} </Text>
+                  <Stack pt={9}>
+                    <Text level="caption_1">/ 100</Text>
+                  </Stack>
+                </Stack>
               </Stack>
             </Stack>
             <Stack
@@ -126,8 +133,13 @@ const HomePage = () => {
                 border={0}
                 justifyContent="start"
               >
-                <Icon name={"colorLabelIcon-lightening"} />
-                <Text>{userXP} XP</Text>
+                <Icon name="lightening" />
+                <Stack flexDirection="row">
+                  <Text level="footnote" weight="bold">
+                    {userXP}{" "}
+                  </Text>
+                  <Text level="footnote">XP</Text>
+                </Stack>
               </Stack>
               <Stack
                 flexDirection="row"
@@ -135,8 +147,13 @@ const HomePage = () => {
                 border={0}
                 justifyContent="start"
               >
-                <Icon name={"colorLabelIcon-streak"} />
-                <Text>{userStreak} Day Streak</Text>
+                <Icon name="streak" />
+                <Stack flexDirection="row">
+                  <Text level="footnote" weight="bold">
+                    {userStreak}{" "}
+                  </Text>
+                  <Text level="footnote">Day Streak</Text>
+                </Stack>
               </Stack>
             </Stack>
           </Stack>

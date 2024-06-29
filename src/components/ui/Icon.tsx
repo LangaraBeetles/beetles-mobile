@@ -58,6 +58,9 @@ import Trash from "assets/icons/trash.svg";
 import Warning from "assets/icons/warning.svg";
 import XpFill from "assets/icons/xp-fill.svg";
 import XpOutline from "assets/icons/xp-outline.svg";
+import StarIcon from "assets/icons/colorLabelIcon-star.svg";
+import LighteningIcon from "assets/icons/colorLabelIcon-lightening.svg";
+import StreakIcon from "assets/icons/colorLabelIcon-streak.svg";
 import WelcomeMascot from "assets/icons/welcome-mascot.svg";
 import ColorLabelIconLightening from "assets/icons/colorLabelIcon-lightening.svg";
 import ColorLabelIconStreak from "assets/icons/colorLabelIcon-streak.svg";
@@ -124,6 +127,9 @@ const IconConfig = {
   warning: Warning,
   "xp-fill": XpFill,
   "xp-outline": XpOutline,
+  star: StarIcon,
+  lightening: LighteningIcon,
+  streak: StreakIcon,
   "welcome-mascot": WelcomeMascot,
   "colorLabelIcon-lightening": ColorLabelIconLightening,
   "colorLabelIcon-streak": ColorLabelIconStreak,
