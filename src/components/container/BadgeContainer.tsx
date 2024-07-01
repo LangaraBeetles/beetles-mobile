@@ -7,16 +7,33 @@ import { globalStyles } from "@src/styles/globalStyles";
 const BadgeContainer: React.FC<{
   title: string;
   subtitle: string;
-  disabled?: boolean;
+  unlocked?: boolean;
   badge: BadgeName;
-}> = ({ title, subtitle, disabled = false, badge }) => {
+}> = ({ title, subtitle, unlocked = false, badge }) => {
   return (
     <BadgeRoot>
-      <Badge name={badge} color={disabled ? "grey" : ""} />
-      <Text level="caption_1" weight="bold">
+      <Badge name={badge} />
+      <Text
+        level="caption_1"
+        weight="bold"
+        style={{
+          color: unlocked
+            ? globalStyles.colors.text
+            : globalStyles.colors.neutral[100],
+        }}
+      >
         {title}
       </Text>
-      <Text level="caption_2">{subtitle}</Text>
+      <Text
+        level="caption_2"
+        style={{
+          color: unlocked
+            ? globalStyles.colors.text
+            : globalStyles.colors.neutral[100],
+        }}
+      >
+        {subtitle}
+      </Text>
     </BadgeRoot>
   );
 };

@@ -1,59 +1,72 @@
 import { StyleSheet } from "react-native";
 import Stack from "../ui/Stack";
 import BadgeContainer from "./BadgeContainer";
-
-type Badge = {
-  title: string;
-  subtitle: string;
-  badge: string;
-};
+import { BadgeType } from "@src/interfaces/badges.types";
 
 // TODO: get the badges from the user
-const badgeData: Badge[] = [
+const badgeData: BadgeType[] = [
   {
     title: "Fire Weasel",
     subtitle: "Level 3",
     badge: "dummy-badge",
+    unlocked: true,
+    date: "2023-08-01",
   },
   {
     title: "Fire Weasel",
     subtitle: "Level 3",
     badge: "dummy-badge",
+    unlocked: false,
+    date: null,
   },
   {
     title: "Fire Weasel",
     subtitle: "Level 3",
     badge: "dummy-badge",
+    unlocked: true,
+    date: "2024-04-01",
   },
   {
     title: "Fire Weasel",
     subtitle: "Level 3",
     badge: "dummy-badge",
+    unlocked: true,
+    date: "2023-04-01",
   },
   {
     title: "Fire Weasel",
     subtitle: "Level 3",
     badge: "dummy-badge",
+    unlocked: false,
+    date: null,
   },
   {
     title: "Fire Weasel",
     subtitle: "Level 3",
     badge: "dummy-badge",
+    unlocked: false,
+    date: null,
   },
   {
     title: "Fire Weasel",
     subtitle: "Level 3",
     badge: "dummy-badge",
+    unlocked: false,
+    date: null,
   },
   {
     title: "Fire Weasel",
     subtitle: "Level 3",
     badge: "dummy-badge",
+    unlocked: true,
+    date: "2021-08-01",
   },
   {
     title: "Fire Weasel",
     subtitle: "Level 3",
     badge: "dummy-badge",
+    unlocked: true,
+    date: "2021-08-01",
   },
 ];
 
@@ -65,6 +78,7 @@ const ProfileBadgeContainerFull = () => {
         title={badge.title}
         subtitle={badge.subtitle}
         badge={badge.badge}
+        unlocked={badge.unlocked}
       />
     ));
   };
