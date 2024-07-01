@@ -11,6 +11,7 @@ import { Text } from "@src/components/ui/typography";
 
 const SetUpGoalScreen3 = () => {
   const completeSetup = useUser((state) => state.completeSetup);
+  const setupComplete = useUser((state) => state.user.isSetupComplete);
   // const setDailyGoal = useUser((state) => state.setDailyGoal);
 
   const isAuth = useUser((data) => data.isAuth);
@@ -33,6 +34,11 @@ const SetUpGoalScreen3 = () => {
     handleButtonPress();
   };
 
+  const updateGoal = () => {
+    // setDailyGoal();
+    router.back();
+  };
+
   return (
     <SafeAreaView>
       <Main>
@@ -49,11 +55,23 @@ const SetUpGoalScreen3 = () => {
               </Text>
             </Stack>
 
-            <Stack>
-              {/* TODO: update button to have icons */}
-              <Button title="I’m all set" onPress={next} variant="primary" />
-              <Button title="Maybe Later" onPress={skip} variant="secondary" />
-            </Stack>
+            {setupComplete ? (
+              <Button
+                title="I’m all set"
+                onPress={updateGoal}
+                variant="primary"
+              />
+            ) : (
+              <Stack>
+                {/* TODO: update button to have icons */}
+                <Button title="I’m all set" onPress={next} variant="primary" />
+                <Button
+                  title="Maybe Later"
+                  onPress={skip}
+                  variant="secondary"
+                />
+              </Stack>
+            )}
           </Stack>
         </Center>
       </Main>

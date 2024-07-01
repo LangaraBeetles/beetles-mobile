@@ -63,6 +63,13 @@ import WelcomeMascot from "assets/icons/welcome-mascot.svg";
 import ColorLabelIconLightening from "assets/icons/colorLabelIcon-lightening.svg";
 import ColorLabelIconStreak from "assets/icons/colorLabelIcon-streak.svg";
 import ColorLabelIconStar from "assets/icons/colorLabelIcon-star.svg";
+import ProfileAvatar from "assets/icons/profile-avatar.svg";
+import ColorLabelIconXp from "assets/icons/colorLabelIcon-xp.svg";
+import ColorLabelIconAward from "assets/icons/colorLabelIcon-award.svg";
+import Logout from "assets/icons/logout.svg";
+import ColorLabelIconTarget from "assets/icons/colorLabelIcon-target.svg";
+import StreakCheckmarkUnchecked from "assets/icons/streak-checkmark-unchecked.svg";
+import StreakCheckmarkChecked from "assets/icons/streak-checkmark-checked.svg";
 
 import { theme } from "@src/styles/theme";
 
@@ -132,6 +139,13 @@ const IconConfig = {
   "colorLabelIcon-lightening": ColorLabelIconLightening,
   "colorLabelIcon-streak": ColorLabelIconStreak,
   "colorLabelIcon-star": ColorLabelIconStar,
+  "profile-avatar": ProfileAvatar,
+  "colorLabelIcon-xp": ColorLabelIconXp,
+  "colorLabelIcon-award": ColorLabelIconAward,
+  logout: Logout,
+  "colorLabelIcon-target": ColorLabelIconTarget,
+  "streak-checkmark-unchecked": StreakCheckmarkUnchecked,
+  "streak-checkmark-checked": StreakCheckmarkChecked,
 };
 
 export type IconName = `${keyof typeof IconConfig}`;

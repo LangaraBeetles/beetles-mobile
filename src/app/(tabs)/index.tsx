@@ -76,7 +76,7 @@ const HomePage = () => {
           >
             {/*TODO: display avatar */}
             <Image source={require("../../../assets/img/avatar.png")} />
-            {userName === null ? <Text>{userName}</Text> : null}
+            {userName != null ? <Text>{userName.split(" ")[0]}</Text> : null}
             <Text>Lv.{userLevel}</Text>
           </Stack>
           <Stack flexDirection="row" gap={18} border={0} p={5}>

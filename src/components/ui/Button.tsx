@@ -8,7 +8,7 @@ import Icon, { IconName } from "@src/components/ui/Icon";
 const Button: React.FC<{
   title: string;
   onPress: () => void;
-  variant?: "primary" | "secondary" | "tertiary";
+  variant?: "primary" | "secondary" | "secondary_coral" | "tertiary";
   disabled?: boolean;
   leadingIcon?: IconName;
   trailingIcon?: IconName;
@@ -78,6 +78,9 @@ const ButtonRoot = styled(Pressable, {
     category: {
       primary: {},
       secondary: {},
+      secondary_coral: {
+        borderColor: theme.colors.error[500],
+      },
       tertiary: {
         backgroundColor: theme.colors.error[500],
         borderColor: theme.colors.error[500],
@@ -126,6 +129,9 @@ const ButtonText = styled(Text, {
       secondary: {
         color: theme.colors.secondary[600],
       },
+      secondary_coral: {
+        color: theme.colors.error[500],
+      },
       tertiary: {
         color: theme.colors.white,
       },
@@ -139,6 +145,7 @@ const ButtonText = styled(Text, {
 const iconColors = {
   primary: theme.colors.white,
   secondary: theme.colors.secondary[600],
+  secondary_coral: theme.colors.error[500],
   tertiary: theme.colors.white,
   disabled: theme.colors.neutral[300],
 };
