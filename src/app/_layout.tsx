@@ -100,6 +100,11 @@ const RootLayout = () => {
                       name="notifications"
                       options={{ headerShown: false }}
                     />
+
+                    <Stack.Screen
+                      name="badges"
+                      options={{ headerShown: false }}
+                    />
                   </Stack>
                 </PostureDataProvider>
               </BottomSheetModalProvider>
