@@ -6,6 +6,7 @@ import { globalStyles } from "@src/styles/globalStyles";
 import Icon from "@src/components/ui/Icon";
 import Spacer from "@src/components/ui/Spacer";
 import { router } from "expo-router";
+import ProfileBadgeContainerFull from "@src/components/container/ProfileBadgeContainerFull";
 
 const back = () => {
   router.back();
@@ -20,6 +21,7 @@ const Badges = () => {
       <View style={styles.background} />
       <View style={styles.innerContainer}>
         <Spacer height={64} />
+
         <Stack flexDirection="row" alignItems="center">
           <Pressable onPress={back} style={styles.icon}>
             <Icon name="arrow-left" />
@@ -30,6 +32,8 @@ const Badges = () => {
             </Text>
           </Stack>
         </Stack>
+        <Spacer height={64} />
+        <ProfileBadgeContainerFull />
       </View>
     </ScrollView>
   );
