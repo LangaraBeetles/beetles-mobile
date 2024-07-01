@@ -1,9 +1,12 @@
-import DummyBadge from "assets/badges/dummy-badge.svg";
 import { styled } from "@fast-styles/react";
 import { View } from "react-native";
 
+import DummyBadge from "assets/badges/dummy-badge.svg";
+import Locked from "assets/badges/locked.svg";
+
 const BadgeConfig = {
   "dummy-badge": DummyBadge,
+  locked: Locked,
 };
 
 export type BadgeName = `${keyof typeof BadgeConfig}`;

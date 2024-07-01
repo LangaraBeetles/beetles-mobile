@@ -12,7 +12,7 @@ const BadgeContainer: React.FC<{
 }> = ({ title, subtitle, unlocked = false, badge }) => {
   return (
     <BadgeRoot>
-      <Badge name={badge} />
+      <Badge name={unlocked ? badge : "locked"} />
       <Text
         level="caption_1"
         weight="bold"
